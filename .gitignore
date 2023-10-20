@@ -1,0 +1,24 @@
+# editer
+.vscode
+
+# MacOs
+.DS_Store
+
+# airflow configs
+airflow.cfg
+airflow.db
+
+# data files
+/data
+
+# logs and outputs
+logs
+wandb
+outputs
+
+# environment
+*.env
+
+# Byte-compiled / optimized / DLL files
+__pycache__
+.cache
