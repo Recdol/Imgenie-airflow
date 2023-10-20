@@ -1,0 +1,3 @@
+[submodule "genie_crawler"]
+	path = genie_crawler
+	url = https://github.com/kCMI113/genie_crawler.git
