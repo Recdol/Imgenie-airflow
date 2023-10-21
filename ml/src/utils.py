@@ -105,7 +105,11 @@ def read_dataset(data_dir: str, tag_type: str) -> datasets.Dataset:
     dsets: List[Optional[datasets.Dataset]] = []
     for _, dir in enumerate(dir_list):
         print("path", os.path.join(data_path, dir))
-        cur_dataset = datasets.load_from_disk(os.path.join(data_path, dir))
+        try:
+            cur_dataset = datasets.load_from_disk(os.path.join(data_path, dir))
+        except Exception:
+            pass
+
         dsets.append(cur_dataset)
 
     dataset = datasets.concatenate_datasets(dsets)
@@ -154,10 +158,10 @@ def get_ocr_result(df: pd.DataFrame) -> List[str]:
             image = image.crop((38, 40, 102, 80))
             text = pt.image_to_string(image)
             ocr_result.append(text)
-        except:
+        except Exception:
             err_list.append(i)
             ocr_result.append("error_img")
-            pass
+
     return ocr_result
 
 
