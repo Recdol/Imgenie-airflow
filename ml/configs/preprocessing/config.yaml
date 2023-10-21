@@ -14,3 +14,5 @@ tag_path: ./input/data/new_tags.csv
 tag_type: mood
 # HF repo id to upload
 repo_id: RecDol/PLAYLIST
+# dataset folder to upload HF repo
+dataset_name: playlists_0709_v2

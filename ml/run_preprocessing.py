@@ -18,7 +18,7 @@ def main(config) -> None:
     tag_path = config.tag_path
     tag_type = config.tag_type
     repo_id = config.repo_id
-    name = train_file[:-4]
+    name = config.dataset_name
     save_dir = os.path.join(output_dir, f"{tag_type}_dataset/{name}")
     data_path = os.path.join(data_dir, train_file)
 
@@ -48,6 +48,7 @@ def main(config) -> None:
         repo_id=repo_id,
         commit_message=f"upload dataset: {name}",
         repo_type="dataset",
+        revision="airflow",
     )
 
 
