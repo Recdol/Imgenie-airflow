@@ -133,8 +133,8 @@ def get_empty_img(df: pd.DataFrame) -> List[int]:
     for idx in df.index:
         try:
             sliced_url = df.at[idx, "playlist_img_url"][:-22]
-            image = read_image(sliced_url)
-        except:
+            read_image(sliced_url)
+        except Exception:
             error_idx.append(idx)
     return error_idx
 
