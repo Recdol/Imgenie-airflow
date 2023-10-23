@@ -23,7 +23,7 @@ def main(config) -> None:
     processor = AutoImageProcessor.from_pretrained(model_repo, subfolder=subfolder)
     model = AutoModel.from_pretrained(model_repo, subfolder=subfolder)
     # load dataset
-    dataset = read_dataset(data_dir, tag_type)
+    dataset = read_dataset(data_dir, tag_type, config.datasets)
     # encode
     dataset_with_embeddings = dataset.map(lambda x: {"embeddings": encode(x["image"], processor, model)})
     # add faiss index

@@ -2,3 +2,4 @@ batch_size: 64
 num_workers: 4
 tag_type: weather #choice = [weather, mood , sit]
 name: weather
+datasets: [playlist, unsplash]

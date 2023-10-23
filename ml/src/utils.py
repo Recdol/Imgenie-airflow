@@ -17,7 +17,7 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 from huggingface_hub import HfApi
 from huggingface_hub import Repository
-from typing import Optional, Tuple, List
+from typing import Optional, Tuple, List, Iterable
 from transformers import AutoImageProcessor, AutoModel
 
 
@@ -97,16 +97,15 @@ def read_data(file_name: str) -> pd.DataFrame:
     return df
 
 
-def read_dataset(data_dir: str, tag_type: str) -> datasets.Dataset:
+def read_dataset(data_dir: str, tag_type: str, data_names: Iterable[str]) -> datasets.Dataset:
     Repository(local_dir=data_dir).git_pull()
     data_path = os.path.join(data_dir, f"{tag_type}")
-    dir_list = os.listdir(data_path)
 
     dsets: List[Optional[datasets.Dataset]] = []
-    for _, dir in enumerate(dir_list):
-        print("path", os.path.join(data_path, dir))
+    for _, name in enumerate(data_names):
+        print("path", os.path.join(data_path, name))
         try:
-            cur_dataset = datasets.load_from_disk(os.path.join(data_path, dir))
+            cur_dataset = datasets.load_from_disk(os.path.join(data_path, name))
         except Exception:
             pass
 

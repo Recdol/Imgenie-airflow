@@ -3,5 +3,6 @@ model_repo_id: RecDol/PL_Multilabel_airflow
 index_repo_id: RecDol/faiss_index_airflow
 name: mood
 data_dir: ../data/dataset/
+datasets: [playlist, unsplash]
 output_dir: ../data/indexing/output/
 tag_type: mood #choice = [weather, mood , sit]
