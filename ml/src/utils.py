@@ -102,12 +102,12 @@ def read_dataset(data_dir: str, tag_type: str, data_names: Iterable[str]) -> dat
     data_path = os.path.join(data_dir, f"{tag_type}")
 
     dsets: List[Optional[datasets.Dataset]] = []
-    for _, name in enumerate(data_names):
+    for name in data_names:
         print("path", os.path.join(data_path, name))
         try:
             cur_dataset = datasets.load_from_disk(os.path.join(data_path, name))
-        except Exception:
-            pass
+        except Exception as e:
+            print("error!", e)
 
         dsets.append(cur_dataset)
 
