@@ -48,7 +48,6 @@ def main(config) -> None:
         repo_id=repo_id,
         commit_message=f"upload dataset: {name}",
         repo_type="dataset",
-        revision="airflow",
     )
 
 
