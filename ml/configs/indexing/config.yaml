@@ -2,6 +2,6 @@ seed: 42
 model_repo_id: RecDol/PL_Multilabel_airflow
 index_repo_id: RecDol/faiss_index_airflow
 name: mood
-data_dir: ./input/data/PLAYLIST
-output_dir: ./output/
+data_dir: data/dataset/
+output_dir: data/indexing/output/
 tag_type: mood #choice = [weather, mood , sit]
