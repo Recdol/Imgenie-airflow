@@ -108,14 +108,12 @@ with DAG(
     run_preprocessing_sit_task = get_run_preprocessing_task("sit", crawler_pl_file)
 
     # finetune
-    finetune_dir = path.join(data_dir, "finetune")
     wandb_project = f"AIRFLOW_{CUR_DATESTAMP}"
     run_finetune_mood_task = get_run_finetune_task("mood", CUR_DATESTAMP, wandb_project)
     run_finetune_weather_task = get_run_finetune_task("weather", CUR_DATESTAMP, wandb_project)
     run_finetune_sit_task = get_run_finetune_task("sit", CUR_DATESTAMP, wandb_project)
 
     # indexing
-    indexing_dir = path.join(data_dir, "indexing")
     run_indexing_mood_task = get_run_indexing_task("mood")
     run_indexing_weather_task = get_run_indexing_task("weather")
     run_indexing_sit_task = get_run_indexing_task("sit")
