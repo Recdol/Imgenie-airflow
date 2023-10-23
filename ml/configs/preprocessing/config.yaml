@@ -1,15 +1,15 @@
 seed: 42
 
 # path to train data directory
-data_dir: data/crawler/
+data_dir: ../data/crawler/
 # path to output directory
-output_dir: data/preprocess/output/
+output_dir: ../data/preprocess/output/
 # path to template image directory
-temp_dir: data/preprocess/template/
+temp_dir: ../data/preprocess/template/
 # train data file name
 train_file: playlists_{datestamp}.csv
 # tag data file path
-tag_path: data/preprocess/new_tags.csv
+tag_path: ../data/preprocess/tags.csv
 # tag type for dataset(mood/sit/weather)
 tag_type: mood
 # HF repo id to upload
