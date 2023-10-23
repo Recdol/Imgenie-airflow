@@ -1,7 +1,7 @@
 timestamp:
 seed: 42
-model_repo_id: RecDol/PL_Multilabel
-data_repo_id: RecDol/PLAYLIST
+model_repo_id: RecDol/PL_Multilabel_airflow
+data_repo_id: RecDol/PLAYLIST_airflow
 
 defaults:
   - _self_
