@@ -1,4 +1,4 @@
 # path to train data directory
-data_dir: ./input/data/PLAYLIST
+data_dir: data/dataset/
 # path to output directory
-output_dir: ./output/
+output_dir: data/finetune/output/
