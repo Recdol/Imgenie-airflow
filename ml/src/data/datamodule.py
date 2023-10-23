@@ -21,7 +21,7 @@ class DataModule(L.LightningDataModule):
         self.tag_type = config.data.tag_type
         self.data_dir = config.path.data_dir
         self.output_dir = config.path.output_dir
-        self.name = config.wandb.name
+        self.name = config.data.name
 
         self.dataset: datasets.Dataset = read_dataset(self.data_dir, self.tag_type)
         self.labels: list = [label for label in self.dataset.features.keys() if label not in ["playlist_id", "playlist_img_url", "image"]]

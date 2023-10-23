@@ -15,7 +15,8 @@ class Trainer:
         self.patience = config.trainer.patience
         self.max_epochs = config.trainer.max_epochs
         self.output_dir = config.path.output_dir
-        self.name = config.wandb.name + f"_fold_{k}" if k is not None else config.wandb.name
+        self.name = config.data.name + f"_fold_{k}" if k is not None else config.data.name
+        self.wandb_name = config.wandb.name
         self.project = config.wandb.project
 
         self.model = model
@@ -57,7 +58,7 @@ class Trainer:
 
     def _build_wandb_logger(self) -> WandbLogger:
         wandb_logger = WandbLogger(
-            name=self.name,
+            name=self.wandb_name,
             project=self.project,
         )
         return wandb_logger

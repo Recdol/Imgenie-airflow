@@ -194,18 +194,20 @@ def generate_predict_result_csv(config, probs: list[torch.Tensor], dataset: data
 
     df = df[["id", "url"] + [f"prob_{label}" for label in labels] + labels]
 
-    dirpath = os.path.join(config.path.output_dir, config.wandb.name)
-    filename = f"{config.wandb.name}_predict_result.csv"
+    dirpath = os.path.join(config.path.output_dir, config.data.name)
+    filename = f"{config.data.name}_predict_result.csv"
     df.to_csv(os.path.join(dirpath, filename), index=False)
 
 
 def upload_HFHub(config) -> None:
     output_dir = config.path.output_dir
     tag_type = config.data.tag_type
-    name = config.wandb.name
     api = HfApi()
     repo_id = config.model_repo_id
 
     api.upload_folder(
-        folder_path=os.path.join(output_dir, name), path_in_repo=f"{tag_type}/{name}", repo_id=repo_id, commit_message=f"upload: {name}"
+        folder_path=os.path.join(output_dir, config.data.name),
+        path_in_repo=os.path.join(tag_type, config.data.name),
+        repo_id=repo_id,
+        commit_message=f"upload: {config.wandb.name}",
     )
